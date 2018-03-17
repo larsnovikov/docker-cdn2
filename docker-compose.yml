@@ -8,7 +8,7 @@ php-fpm:
 nginx_app:
     build: nginx_app
     ports:
-        - 8080:80
+        - 127.0.0.1:8080:80
     volumes:
         - ./app:/var/www/html/
     links:
@@ -16,6 +16,6 @@ nginx_app:
 nginx_front:
     build: nginx_front
     ports:
-        - 8081:80
+        - 127.0.0.1:80:80
     volumes:
         - ./images:/var/www/images
