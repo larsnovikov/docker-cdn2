@@ -4,9 +4,7 @@ php-fpm:
         - 9000:9000
     volumes:
         - ./app:/var/www/html/
-        - ./output:/var/www/output
-        - ./input:/var/www/input
-        - ./watermark:/var/www/watermark
+        - ./images:/var/www/images
 nginx_app:
     build: nginx_app
     ports:
@@ -20,4 +18,4 @@ nginx_front:
     ports:
         - 8081:80
     volumes:
-        - ./output:/var/www/output
+        - ./images:/var/www/images
