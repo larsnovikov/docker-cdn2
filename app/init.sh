@@ -10,18 +10,6 @@ git pull origin master;
 # get composer
 composer install;
 
-# set paths
-read -p "Enter input path[/var/www/input]: " inputPath
-inputPath=${inputPath:-/var/www/input}
-
-read -p "Enter output path[/var/www/output]: " outputPath
-outputPath=${outputPath:-/var/www/output}
-
-read -p "Enter watermark path[/var/www/watermark]: " watermarkPath
-watermarkPath=${watermarkPath:-/var/www/watermark}
-
-php yii command/init $inputPath $outputPath $watermarkPath
-
 # add frontends
 read -p "Enter frontends[delimiter: ,]: " frontends
 frontends=${frontends:-127.0.0.1}
