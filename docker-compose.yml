@@ -15,3 +15,9 @@ nginx_app:
         - ./app:/var/www/html/
     links:
         - php-fpm
+nginx_front:
+    build: nginx_front
+    ports:
+        - 8081:80
+    volumes:
+        - ./output:/var/www/output
