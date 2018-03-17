@@ -1,0 +1,5 @@
+.idea
+app/web/*
+output/*
+input/*
+watermark/*

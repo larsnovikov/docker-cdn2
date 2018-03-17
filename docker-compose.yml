@@ -1,0 +1,17 @@
+php-fpm:
+    build: php-fpm
+    ports:
+        - 9000:9000
+    volumes:
+        - ./app:/var/www/html/
+        - ./output:/var/www/output
+        - ./input:/var/www/input
+        - ./watermark:/var/www/watermark
+nginx_app:
+    build: nginx_app
+    ports:
+        - 8080:80
+    volumes:
+        - ./app:/var/www/html/
+    links:
+        - php-fpm
