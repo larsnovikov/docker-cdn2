@@ -5,3 +5,6 @@ sudo docker-compose up -d --build;
 
 # init in php container
 sudo docker exec -ti cdn_php-fpm_1 /bin/bash init.sh
+
+sudo bash nginx_app/init.sh
+sudo bash nginx_front/init.sh
