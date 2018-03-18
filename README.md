@@ -1,4 +1,4 @@
-Готовый контейнер для cdn [https://github.com/larsnovikov/cdn]
+CDN сервер для [https://github.com/larsnovikov/cdn]
 =====================
 
 # Установка
