@@ -1,6 +1,7 @@
 #!/bin/bash
 echo 'app init start';
 cd /var/www/html/web;
+chmod -R 0777 runtime
 
 # get cdn
 git init;
