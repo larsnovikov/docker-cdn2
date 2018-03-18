@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir images
 mkdir images/output
-mkdir images/imput
+mkdir images/input
 mkdir images/watermark
 
 sudo docker-compose down;
