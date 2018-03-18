@@ -1,9 +1,12 @@
 #!/bin/bash
-# start docker
+mkdir images
+mkdir images/output
+mkdir images/imput
+mkdir images/watermark
+
 sudo docker-compose down;
 sudo docker-compose up -d --build;
 
-# init in php container
 sudo docker exec -ti cdn_php-fpm_1 /bin/bash init.sh
 
 sudo bash nginx_app/init.sh
