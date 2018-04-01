@@ -21,6 +21,8 @@ while true; do
          cp /var/www/html/web/config/templates/db-local-tpl.php /var/www/html/web/config/db-local.php;
          cp /var/www/html/web/config/templates/cdn-local-tpl.php /var/www/html/web/config/cdn-local.php;
 
+         chmod -R 0777 /var/www/images
+
          echo '============ После установки ============';
          echo '1. Измените доступы к БД /config/db-local.php';
          echo '2. Измените параметры работы c CDN /config/cdn-local.php';
