@@ -8,7 +8,6 @@ CDN сервер для [https://github.com/larsnovikov/cdn]
  - Следуйте подсказкам
  - Измените доступы к БД в `/config/db-local.php`
  - Измените параметры работы c CDN в `/config/cdn-local.php`
- - Создайте первое хранилище выполнив `php yii command/add-storage <название хранилища>` внутри php-fpm контейнера;
 
 # Описание
 

@@ -1,6 +1,7 @@
 #!/bin/bash
 mkdir images
 mkdir images/output
+mkdir images/output/default
 mkdir images/input
 mkdir images/watermark
 
