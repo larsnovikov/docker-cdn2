@@ -22,7 +22,7 @@ while true; do
          echo '============ После установки ============';
          echo '1. Измените доступы к БД /config/db-local.php';
          echo '2. Измените параметры работы c CDN /config/cdn-local.php';
-         echo '3. Создайте первое хранилище command/add-storage <назвние хранилища>';
+         echo '3. Создайте первое хранилище выполнив php yii command/add-storage <назвние хранилища> внутри php-fpm контейнера;
          echo '=========================================';
          break;;
         [Nn]* ) exit;;
