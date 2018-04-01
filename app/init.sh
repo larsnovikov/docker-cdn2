@@ -4,9 +4,9 @@ while true; do
     case $yn in
         [Yy]* )
          cd /var/www/html/web;
+         mkdir runtime
          mkdir runtime/cache
          chmod -R 0777 runtime
-         chmod -R 0777 /var/www/html/web/config/templates
 
          # get cdn
          git init;
@@ -17,6 +17,7 @@ while true; do
          composer install;
 
          #copy configs
+         chmod -R 0777 /var/www/html/web/config/templates
          cp /var/www/html/web/config/templates/db-local-tpl.php /var/www/html/web/config/db-local.php;
          cp /var/www/html/web/config/templates/cdn-local-tpl.php /var/www/html/web/config/cdn-local.php;
 
