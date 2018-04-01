@@ -4,6 +4,7 @@ while true; do
     case $yn in
         [Yy]* )
          cd /var/www/html/web;
+         mkdir runtime/cache
          chmod -R 0777 runtime
          chmod -R 0777 /var/www/html/web/config/templates
 
