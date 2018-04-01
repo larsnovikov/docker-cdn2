@@ -1,26 +1,33 @@
 #!/bin/bash
-echo 'app init start';
-cd /var/www/html/web;
-chmod -R 0777 runtime
+while true; do
+    read -p "Это первый запуск? [y/n]" yn
+    case $yn in
+        [Yy]* )
+         cd /var/www/html/web;
+         chmod -R 0777 runtime
+         chmod -R 0777 /var/www/html/web/config/templates
 
-# get cdn
-git init;
-git remote add origin https://github.com/larsnovikov/cdn;
-git pull origin master;
+         # get cdn
+         git init;
+         git remote add origin https://github.com/larsnovikov/cdn;
+         git pull origin master;
 
-# get composer
-composer install;
+         # get composer
+         composer install;
 
-# add frontends
-read -p "Enter frontends[delimiter: ,]: " frontends
-frontends=${frontends:-127.0.0.1}
+         #copy configs
+         cp /var/www/html/web/config/templates/db-local-tpl.php /var/www/html/web/config/db-local.php;
+         cp /var/www/html/web/config/templates/cdn-local-tpl.php /var/www/html/web/config/cdn-local.php;
 
-php yii command/add-frontends $frontends
+         echo '============ После установки ============';
+         echo '1. Измените доступы к БД /config/db-local.php';
+         echo '2. Измените параметры работы c CDN /config/cdn-local.php';
+         echo '3. Создайте первое хранилище command/add-storage <назвние хранилища>';
+         echo '=========================================';
+         break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 
-# add first storage
-read -p "Enter first storage name[storage1]: " storageName
-storageName=${storageName:-storage1}
-
-php yii command/add-storage $storageName
-echo 'app init end';
 exit;
