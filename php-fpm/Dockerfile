@@ -16,6 +16,8 @@ RUN apt-get update && apt-get upgrade && apt-get install -y \
     	&& docker-php-ext-install gd \
         && docker-php-ext-install pdo_mysql
 
+RUN docker-php-ext-install bcmath
+
 COPY yii.conf  /usr/local/etc/
 
 RUN usermod -u 1000 www-data
@@ -23,8 +25,12 @@ RUN usermod -u 1000 www-data
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN pecl install imagick
-#  add "extension=imagick.so" to php.ini
+
 RUN echo "extension=imagick.so" > /usr/local/etc/php/conf.d/imagick.ini
+
+RUN apt-get install -y supervisor
+
+COPY supervisor/supervisord.conf /etc/supervisor/supervisord.conf
 
 EXPOSE 9000
 CMD ["php-fpm", "-F"]
