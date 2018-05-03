@@ -1,5 +1,6 @@
 php-fpm:
     build: php-fpm
+    container_name: cdn_fpm_app
     ports:
         - 9000:9000
     volumes:
@@ -7,6 +8,7 @@ php-fpm:
         - ./images:/var/www/images
 nginx_app:
     build: nginx_app
+    container_name: cdn_nginx_app
     ports:
         - 127.0.0.1:8080:80
     volumes:
@@ -15,6 +17,7 @@ nginx_app:
         - php-fpm
 nginx_front:
     build: nginx_front
+    container_name: cdn_nginx_front
     ports:
         - 127.0.0.1:80:80
     volumes:
