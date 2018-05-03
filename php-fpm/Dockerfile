@@ -1,20 +1,18 @@
 FROM php:7.1-fpm
 
-MAINTAINER Nicola Pietroluongo <nik.longstone@gmail.com>
-
-RUN apt-get update && apt-get upgrade && apt-get install -y \
-        libfreetype6-dev \
-        libjpeg62-turbo-dev \
-        libmcrypt-dev \
-        libpng12-dev \
-        curl \
-        git \
-        jpegoptim \
-        libmagickwand-dev \
-        imagemagick \
-    	&& docker-php-ext-configure gd --with-png-dir=/usr/include --with-jpeg-dir=/usr/include \
-    	&& docker-php-ext-install gd \
-        && docker-php-ext-install pdo_mysql
+RUN apt-get update
+RUN apt-get install -y libfreetype6-dev
+RUN apt-get install -y libjpeg62-turbo-dev
+RUN apt-get install -y libmcrypt-dev
+RUN apt-get install -y libpng12-dev
+RUN apt-get install -y curl
+RUN apt-get install -y git
+RUN apt-get install -y jpegoptim
+RUN apt-get install -y libmagickwand-dev
+RUN apt-get install -y imagemagick
+RUN docker-php-ext-configure gd --with-png-dir=/usr/include --with-jpeg-dir=/usr/include
+RUN docker-php-ext-install gd
+RUN docker-php-ext-install pdo_mysql
 
 RUN docker-php-ext-install bcmath
 
